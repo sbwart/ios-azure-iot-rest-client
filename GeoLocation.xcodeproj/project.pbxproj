@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693BA3581E09AFA800C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; };
+		693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3591E09BBD700C5522E /* CoreFoundation.framework */; };
+		693BA35B1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; };
+		693BA35C1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
 		69F3AE791E06F0D10030AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* ViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
@@ -14,6 +18,8 @@
 		69F3AE811E06F0D10030AFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */; };
 		69F3AE8C1E06F0D10030AFA1 /* GeoLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE8B1E06F0D10030AFA1 /* GeoLocationTests.swift */; };
 		69F3AE971E06F0D10030AFA1 /* GeoLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE961E06F0D10030AFA1 /* GeoLocationUITests.swift */; };
+		69F3AEA61E06F0E70030AFA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA51E06F0E70030AFA1 /* MapKit.framework */; };
+		69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +39,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		693BA35D1E09D96900C5522E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				693BA35C1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoLocation-Bridging-Header.h"; sourceTree = "<group>"; };
+		693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = CommonCrypto/Carthage/Build/iOS/IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
+		693BA3591E09BBD700C5522E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3AE781E06F0D10030AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +70,8 @@
 		69F3AE921E06F0D10030AFA1 /* GeoLocationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoLocationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE961E06F0D10030AFA1 /* GeoLocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationUITests.swift; sourceTree = "<group>"; };
 		69F3AE981E06F0D10030AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69F3AEA51E06F0E70030AFA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +79,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				693BA3581E09AFA800C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */,
+				693BA35B1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */,
+				693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */,
+				69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */,
+				69F3AEA61E06F0E70030AFA1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +111,7 @@
 				69F3AE8A1E06F0D10030AFA1 /* GeoLocationTests */,
 				69F3AE951E06F0D10030AFA1 /* GeoLocationUITests */,
 				69F3AE741E06F0D10030AFA1 /* Products */,
+				69F3AEA41E06F0E70030AFA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +134,7 @@
 				69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */,
 				69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */,
 				69F3AE821E06F0D10030AFA1 /* Info.plist */,
+				693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */,
 			);
 			path = GeoLocation;
 			sourceTree = "<group>";
@@ -125,6 +157,17 @@
 			path = GeoLocationUITests;
 			sourceTree = "<group>";
 		};
+		69F3AEA41E06F0E70030AFA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				693BA3591E09BBD700C5522E /* CoreFoundation.framework */,
+				693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */,
+				69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */,
+				69F3AEA51E06F0E70030AFA1 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +178,7 @@
 				69F3AE6F1E06F0D10030AFA1 /* Sources */,
 				69F3AE701E06F0D10030AFA1 /* Frameworks */,
 				69F3AE711E06F0D10030AFA1 /* Resources */,
+				693BA35D1E09D96900C5522E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,7 +237,16 @@
 				TargetAttributes = {
 					69F3AE721E06F0D10030AFA1 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = MSJ6KMGCMB;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					69F3AE861E06F0D10030AFA1 = {
 						CreatedOnToolsVersion = 8.2;
@@ -412,6 +465,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MSJ6KMGCMB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GeoLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.magic.GeoLocation;
@@ -424,6 +482,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MSJ6KMGCMB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GeoLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.magic.GeoLocation;
@@ -505,6 +568,7 @@
 				69F3AE9D1E06F0D10030AFA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69F3AE9E1E06F0D10030AFA1 /* Build configuration list for PBXNativeTarget "GeoLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +577,7 @@
 				69F3AEA01E06F0D10030AFA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69F3AEA11E06F0D10030AFA1 /* Build configuration list for PBXNativeTarget "GeoLocationUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +586,7 @@
 				69F3AEA31E06F0D10030AFA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
