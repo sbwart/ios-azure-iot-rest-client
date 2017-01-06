@@ -73,9 +73,8 @@ class IotGateway {
         if let token = generateSASToken(resourceUri: endpoint, signingKey: devicekey, policyName: nil, expiresInMinutes: 60.0) {
             
             let coord = location.coordinate
-            let now = NSDate().timeIntervalSince1970
-            // TODO Use JSON Serialization
-            let item = "{\"timestamp\":\(now), \"device\":\"\(deviceid)\", \"latitude\":\(coord.latitude), \"longitude\":\(coord.longitude)}"
+            let timestamp = location.timestamp.timeIntervalSince1970
+            let item = "{\"timestamp\":\(timestamp), \"device\":\"\(deviceid)\", \"latitude\":\(coord.latitude), \"longitude\":\(coord.longitude)}"
             
             if let body = item.data(using: .utf8) {
                 // HTTP POST request
@@ -101,7 +100,7 @@ class IotGateway {
         }
     }
     
-    func registerDevice(_ then: @escaping (_: NSDictionary?) -> Void) {
+    func registerDevice(_ then: @escaping (_: Data?) -> Void) {
         // generate a unique device key
         let deviceid = generate()
         
@@ -149,12 +148,8 @@ class IotGateway {
                         then(nil)
                         return
                     }
-                    if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                        let dict = json as! NSDictionary
-                        // successfully registered device
-                        then(dict)
-                        return
-                    }
+                    // successfully registered device
+                    then(data)
                 }
                 task.resume()
             }

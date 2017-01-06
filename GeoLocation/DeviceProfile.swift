@@ -26,7 +26,7 @@ class DeviceProfile {
 
         let path = profilePath()
 
-        if let lookup = NSDictionary(contentsOfFile: path) {
+        if let lookup = try? Data (contentsOf: path) {
             print("Reading device profile from \(path)")
             readDeviceKeys(lookup)
         }
@@ -35,10 +35,14 @@ class DeviceProfile {
         }
     }
     
-    private func profilePath() -> String {
-        let docpaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let directory = docpaths[0] as String
-        return directory.appending("/deviceProfile.plist")
+    private func profilePath() -> URL {
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+        
+        for file in try! FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) {
+            print(file)
+        }
+        
+        return directory.appendingPathComponent("deviceProfile.plist")
     }
     
     static func defaultProfile() -> DeviceProfile {
@@ -68,12 +72,16 @@ class DeviceProfile {
         }
     }
     
-    func readDeviceKeys(_ from: NSDictionary) {
-        self.deviceId = from.object(forKey: "deviceId") as? String
-        let auth = from.object(forKey: "authentication") as! NSDictionary
-        let keys = auth.object(forKey:"symmetricKey") as! NSDictionary
-        self.primaryKey = keys.object(forKey: "primaryKey") as? String
-        self.secondaryKey = keys.object(forKey: "secondaryKey") as? String
+    // assume device data is serialized application/json
+    func readDeviceKeys(_ from: Data) {
+        if let json = try? JSONSerialization.jsonObject(with: from, options: .mutableContainers) {
+            let dict = json as! NSDictionary
+            self.deviceId = dict.object(forKey: "deviceId") as? String
+            let auth = dict.object(forKey: "authentication") as! NSDictionary
+            let keys = auth.object(forKey:"symmetricKey") as! NSDictionary
+            self.primaryKey = keys.object(forKey: "primaryKey") as? String
+            self.secondaryKey = keys.object(forKey: "secondaryKey") as? String
+        }
     }
     
     func register() throws {
@@ -86,9 +94,9 @@ class DeviceProfile {
         DispatchQueue.global(qos: .userInitiated).async {
             self.gateway.registerDevice({ result in
                 
-                if let dict = result {
+                if let data = result {
                     
-                    self.readDeviceKeys(dict)
+                    self.readDeviceKeys(data)
                     
                     DispatchQueue.main.async {
                         print("Device ID: \(self.deviceId)")
@@ -96,12 +104,17 @@ class DeviceProfile {
                         print("Device Secondary Key: \(self.secondaryKey)")
                         
                         let path = self.profilePath()
-                        dict.write(toFile: path, atomically: true)
+                        if let _ = try? data.write(to: path) {
+                            print("Successfully wrote device registration info")
+                        }
+                        else {
+                            print("Failed to write device registration info")
+                            self.resecheduleRegistration()
+                        }
                     }
                 }
                 else {
                     self.resecheduleRegistration()
-                    return
                 }
             })
         }
