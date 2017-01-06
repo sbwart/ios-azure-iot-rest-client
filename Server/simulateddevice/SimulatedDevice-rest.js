@@ -30,42 +30,45 @@ function generateSasToken(resourceUri, signingKey, policyName, expiresInMins) {
   return token;
 }
 
+// Device ID: SW-LE6G8243N4C6Y1MN8D7J
+// Device key: ApaTnC95BYzZwUwYU56RaVdt9OnYUQj7NPZWwa/tPJo=
+
 var hostname = 'IoTPOCGateway';
-var deviceid = 'ngscFirstNodeDevice';
+var deviceid = 'SW-ZY3D493E5E1Z101LXH5M';
+var apiversion = '2016-02-03';
 var endpoint = `${hostname}.azure-devices.net/devices/${deviceid}`;
-// var devicekey = 'PcMGegjfmDhD/YSD+NZmUXavNa4T5BnydISX8ci4rO0=';  // primary key for ngscFirstNodeDevice
-var devicekey = 'wA18wu4ERemxetPFcavCZcG+Mb67t7zuUc6yl0yirCI=';   // device
+var devicekey = 'lmxqfmfyNcvFMOb58F8aSjBDzrcIeTHXN3MNrCO6TOM=';  // symmetric key obtained when device is created
+// var devicekey = 'wA18wu4ERemxetPFcavCZcG+Mb67t7zuUc6yl0yirCI=';   // device shared key
 
-var token = generateSasToken(endpoint, devicekey, 'device', 60);
+// policyName must not be specified when using a device symmetric key
+var token = generateSasToken(endpoint, devicekey, null, 60);
 
-var windSpeed = 10 + (Math.random() * 4);
-var data = JSON.stringify({deviceId: deviceid, windSpeed: windSpeed});
+// the skn field must be set to the name of the policy used when using a device shared key
+// var token = generateSasToken(endpoint, devicekey, 'device', 60);
 
 var options = {
   host: `${hostname}.azure-devices.net`,
-  path: `/devices/${deviceid}/messages/events?api-version=2016-02-03`,
+  path: `/devices/${deviceid}/messages/events?api-version=${apiversion}`,
   method: 'POST',
   headers: {
     'Authorization': token
   }
 };
 
-var request = https.request(options, function(res) {
-  res.setEncoding('utf8');
-  res.on('data', function(chunk) {
-    console.log('Response: ' + chunk)
+function publish() {
+  var windSpeed = 10 + (Math.random() * 4);
+  var data = JSON.stringify({deviceId: deviceid, windSpeed: windSpeed});
+
+  var request = https.request(options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function(chunk) {
+      console.log('Response: ' + chunk)
+    });
   });
-});
 
-// post the data
-request.write(data);
-request.end();
-
-
-function testHmac(stringValue) {
-  var hmac = crypto.createHmac('sha256', new Buffer(devicekey, 'base64'));
-  hmac.update(stringValue);
-  return encodeURIComponent(hmac.digest('base64'));
+  // post the data
+  request.write(data);
+  request.end();
 }
 
-console.log("hmac(abc)=", testHmac("abc"))
+publish()

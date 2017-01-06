@@ -7,7 +7,7 @@
  var registry = iothub.Registry.fromConnectionString(connectionString);
 
  var device = new iothub.Device(null);
- device.deviceId = 'ngscFirstNodeDevice';
+ device.deviceId = 'SW-LE6G8243N4C6Y1MN8D7J';
  registry.create(device, function(err, deviceInfo, res) {
    if (err) {
      registry.get(device.deviceId, printDeviceInfo);

@@ -2,6 +2,7 @@
 node_modules
 
 # Xcode
+.DS_Store
 
 ## Build generated
 build/
