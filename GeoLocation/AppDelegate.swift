@@ -13,8 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let profile = DeviceProfile.defaultProfile()
+        
+        // registration will be done asynchronously
+        if !profile.isRegistered() {
+            try! profile.register()
+        }
+        
         return true
     }
 

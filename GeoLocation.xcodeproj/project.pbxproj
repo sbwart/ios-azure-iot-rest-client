@@ -11,6 +11,7 @@
 		693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3591E09BBD700C5522E /* CoreFoundation.framework */; };
 		693BA35B1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; };
 		693BA35C1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6983BBE11E1F132F00C9E0F6 /* registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6983BBE01E1F132F00C9E0F6 /* registration.plist */; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
 		69F3AE791E06F0D10030AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* ViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 		69F3AE971E06F0D10030AFA1 /* GeoLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE961E06F0D10030AFA1 /* GeoLocationUITests.swift */; };
 		69F3AEA61E06F0E70030AFA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA51E06F0E70030AFA1 /* MapKit.framework */; };
 		69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */; };
+		69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */; };
+		69FF679C1E0EE24500AAD9A4 /* DeviceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,7 @@
 		693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoLocation-Bridging-Header.h"; sourceTree = "<group>"; };
 		693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = CommonCrypto/Carthage/Build/iOS/IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
 		693BA3591E09BBD700C5522E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6983BBE01E1F132F00C9E0F6 /* registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = registration.plist; sourceTree = "<group>"; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3AE781E06F0D10030AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		69F3AE981E06F0D10030AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F3AEA51E06F0E70030AFA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IoTGateway.swift; sourceTree = "<group>"; };
+		69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6983BBDF1E1F12E900C9E0F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6983BBE01E1F132F00C9E0F6 /* registration.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		69F3AE6A1E06F0D10030AFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +142,7 @@
 		69F3AE751E06F0D10030AFA1 /* GeoLocation */ = {
 			isa = PBXGroup;
 			children = (
+				6983BBDF1E1F12E900C9E0F6 /* Resources */,
 				69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */,
 				69F3AE781E06F0D10030AFA1 /* ViewController.swift */,
 				69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */,
@@ -135,6 +150,8 @@
 				69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */,
 				69F3AE821E06F0D10030AFA1 /* Info.plist */,
 				693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */,
+				69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */,
+				69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */,
 			);
 			path = GeoLocation;
 			sourceTree = "<group>";
@@ -288,6 +305,7 @@
 				69F3AE811E06F0D10030AFA1 /* LaunchScreen.storyboard in Resources */,
 				69F3AE7E1E06F0D10030AFA1 /* Assets.xcassets in Resources */,
 				69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */,
+				6983BBE11E1F132F00C9E0F6 /* registration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */,
 				69F3AE791E06F0D10030AFA1 /* ViewController.swift in Sources */,
 				69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */,
+				69FF679C1E0EE24500AAD9A4 /* DeviceProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
