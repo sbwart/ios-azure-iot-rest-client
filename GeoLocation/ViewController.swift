@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import MapKit
+import Mapbox
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet var mapView : MKMapView?
+    @IBOutlet var mapView : MGLMapView?
     // need to maintain a reference to the location manager for authorization requests
     let manager = CLLocationManager()
     let gateway = IotGateway()
@@ -21,6 +21,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         super.viewDidLoad()
 
         mapView?.delegate = self
+        mapView?.attributionButton.isHidden = true
+        mapView?.logoView.isHidden = true
         
         // Location Services
         if CLLocationManager.locationServicesEnabled() {
@@ -45,6 +47,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var desiredInterval = 15.0 * 60
     var lastUpdateTime = 0.0
     
+    var didInitialZoom = false
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last!
         let speed = location.speed
@@ -55,12 +59,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             gateway.publishLocation(location)
             lastUpdateTime = NSDate().timeIntervalSince1970
         }
-    }
-
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let span = MKCoordinateSpanMake(0.02, 0.02)
-        let region = MKCoordinateRegionMake(mapView.userLocation.coordinate, span)
-        mapView.setRegion(region, animated: true)
+        // zoom map view to user location (just once, at startup)
+        // XXX there should be a compass icon to provide control
+        if !didInitialZoom {
+            mapView?.setCenter(coord, zoomLevel: 14.0, animated: true)
+            didInitialZoom = true
+        }
     }
 }
 
