@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3591E09BBD700C5522E /* CoreFoundation.framework */; };
-		693BA35B1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; };
-		693BA35C1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6983BBE11E1F132F00C9E0F6 /* registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6983BBE01E1F132F00C9E0F6 /* registration.plist */; };
 		6983BBE41E24066800C9E0F6 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBE31E24066800C9E0F6 /* Mapbox.framework */; };
 		6983BBE51E24066800C9E0F6 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBE31E24066800C9E0F6 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -17,6 +15,8 @@
 		6983BBE91E244E8500C9E0F6 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBE71E244E8500C9E0F6 /* PulleyViewController.swift */; };
 		6983BBEC1E245B2C00C9E0F6 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */; };
 		6983BBEE1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */; };
+		6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */; };
+		6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
 		69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* MapViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
@@ -53,7 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				693BA35C1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
+				6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
 				6983BBE51E24066800C9E0F6 /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -63,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoLocation-Bridging-Header.h"; sourceTree = "<group>"; };
-		693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = CommonCrypto/Carthage/Build/iOS/IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
 		693BA3591E09BBD700C5522E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6983BBE01E1F132F00C9E0F6 /* registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = registration.plist; sourceTree = "<group>"; };
 		6983BBE31E24066800C9E0F6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		6983BBE71E244E8500C9E0F6 /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyViewController.swift; path = ../PulleyViewController.swift; sourceTree = "<group>"; };
 		6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
+		6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = Carthage/Build/iOS/IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3AE781E06F0D10030AFA1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				693BA35B1E09D96900C5522E /* IDZSwiftCommonCrypto.framework in Frameworks */,
+				6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */,
 				693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */,
 				69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */,
 				6983BBE41E24066800C9E0F6 /* Mapbox.framework in Frameworks */,
@@ -197,9 +197,9 @@
 		69F3AEA41E06F0E70030AFA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */,
 				6983BBE31E24066800C9E0F6 /* Mapbox.framework */,
 				693BA3591E09BBD700C5522E /* CoreFoundation.framework */,
-				693BA3571E09AFA800C5522E /* IDZSwiftCommonCrypto.framework */,
 				69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
@@ -514,6 +514,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GeoLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -532,6 +533,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GeoLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

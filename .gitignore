@@ -1,3 +1,6 @@
+# Ignore Carthage generated builds
+Carthage/
+
 # Azure IoT keys
 registration.plist
 

@@ -93,4 +93,9 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
             drawerVC.setDrawerPosition(position: .open, animated: true)
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let options = ForwardGeocodeOptions(query:searchText)
+        
+    }
 }

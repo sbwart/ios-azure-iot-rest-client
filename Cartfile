@@ -1,0 +1,2 @@
+github "iosdevzone/IDZSwiftCommonCrypto"
+github "Mapbox/MapboxGeocoder.swift" ~> 0.5.0
