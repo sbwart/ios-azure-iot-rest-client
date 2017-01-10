@@ -13,8 +13,12 @@
 		6983BBE11E1F132F00C9E0F6 /* registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6983BBE01E1F132F00C9E0F6 /* registration.plist */; };
 		6983BBE41E24066800C9E0F6 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBE31E24066800C9E0F6 /* Mapbox.framework */; };
 		6983BBE51E24066800C9E0F6 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBE31E24066800C9E0F6 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6983BBE81E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBE61E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift */; };
+		6983BBE91E244E8500C9E0F6 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBE71E244E8500C9E0F6 /* PulleyViewController.swift */; };
+		6983BBEC1E245B2C00C9E0F6 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */; };
+		6983BBEE1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
-		69F3AE791E06F0D10030AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* ViewController.swift */; };
+		69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* MapViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
 		69F3AE7E1E06F0D10030AFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */; };
 		69F3AE811E06F0D10030AFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */; };
@@ -63,9 +67,13 @@
 		693BA3591E09BBD700C5522E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6983BBE01E1F132F00C9E0F6 /* registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = registration.plist; sourceTree = "<group>"; };
 		6983BBE31E24066800C9E0F6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		6983BBE61E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = ../PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
+		6983BBE71E244E8500C9E0F6 /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyViewController.swift; path = ../PulleyViewController.swift; sourceTree = "<group>"; };
+		6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69F3AE781E06F0D10030AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69F3AE781E06F0D10030AFA1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		69F3AE7B1E06F0D10030AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69F3AE801E06F0D10030AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,6 +126,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		6983BBEA1E2458F300C9E0F6 /* iOS 10 Pulley Map UI */ = {
+			isa = PBXGroup;
+			children = (
+				6983BBE61E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift */,
+				6983BBE71E244E8500C9E0F6 /* PulleyViewController.swift */,
+			);
+			name = "iOS 10 Pulley Map UI";
+			sourceTree = "<group>";
+		};
 		69F3AE6A1E06F0D10030AFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -142,14 +159,17 @@
 		69F3AE751E06F0D10030AFA1 /* GeoLocation */ = {
 			isa = PBXGroup;
 			children = (
+				6983BBEA1E2458F300C9E0F6 /* iOS 10 Pulley Map UI */,
 				6983BBDF1E1F12E900C9E0F6 /* Resources */,
 				69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */,
-				69F3AE781E06F0D10030AFA1 /* ViewController.swift */,
 				69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */,
 				69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */,
 				69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */,
 				69F3AE821E06F0D10030AFA1 /* Info.plist */,
 				693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */,
+				69F3AE781E06F0D10030AFA1 /* MapViewController.swift */,
+				6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */,
+				6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */,
 				69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */,
 				69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */,
 			);
@@ -330,10 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6983BBE81E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift in Sources */,
 				69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */,
-				69F3AE791E06F0D10030AFA1 /* ViewController.swift in Sources */,
+				6983BBEC1E245B2C00C9E0F6 /* LocationSearchViewController.swift in Sources */,
+				6983BBEE1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift in Sources */,
+				69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */,
 				69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */,
 				69FF679C1E0EE24500AAD9A4 /* DeviceProfile.swift in Sources */,
+				6983BBE91E244E8500C9E0F6 /* PulleyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

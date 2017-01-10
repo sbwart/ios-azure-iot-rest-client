@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  GeoLocation
 //
 //  Created by Steve Wart on 12/18/16.
@@ -10,10 +10,17 @@ import UIKit
 import Mapbox
 import CoreLocation
 
-class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryContentControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var mapView : MGLMapView?
-    // need to maintain a reference to the location manager for authorization requests
+    @IBOutlet var controlsContainer: UIView!
+    @IBOutlet var temperatureLabel: UILabel!
+
+    @IBOutlet var temperatureLabelBottomConstraint: NSLayoutConstraint!
+    
+    private let temperatureLabelBottomDistance: CGFloat = 8.0
+    
+// need to maintain a reference to the location manager for authorization requests
     let manager = CLLocationManager()
     let gateway = IotGateway()
 
@@ -24,6 +31,9 @@ class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDel
         mapView?.attributionButton.isHidden = true
         mapView?.logoView.isHidden = true
         
+        controlsContainer.layer.cornerRadius = 10.0
+        temperatureLabel.layer.cornerRadius = 7.0
+
         // Location Services
         if CLLocationManager.locationServicesEnabled() {
             manager.delegate = self
@@ -64,6 +74,43 @@ class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDel
         if !didInitialZoom {
             mapView?.setCenter(coord, zoomLevel: 14.0, animated: true)
             didInitialZoom = true
+        }
+    }
+    
+    func makeUIAdjustmentsForFullscreen(progress: CGFloat)
+    {
+        controlsContainer.alpha = 1.0 - progress
+    }
+    
+    func drawerChangedDistanceFromBottom(drawer: PulleyViewController, distance: CGFloat)
+    {
+        if distance <= 268.0
+        {
+            temperatureLabelBottomConstraint.constant = distance + temperatureLabelBottomDistance
+        }
+        else
+        {
+            temperatureLabelBottomConstraint.constant = 268.0 + temperatureLabelBottomDistance
+        }
+    }
+    
+    @IBAction func runPrimaryContentTransitionWithoutAnimation(sender: AnyObject) {
+        
+        if let drawer = self.parent as? PulleyViewController
+        {
+            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
+            
+            drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
+        }
+    }
+    
+    @IBAction func runPrimaryContentTransition(sender: AnyObject) {
+        
+        if let drawer = self.parent as? PulleyViewController
+        {
+            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
+            
+            drawer.setPrimaryContentViewController(controller: primaryContent, animated: true)
         }
     }
 }
