@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Mapbox
+import MapboxGeocoder
 
 class LocationSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, UISearchBarDelegate {
     
@@ -15,6 +17,11 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
     @IBOutlet var gripperView: UIView!
     
     @IBOutlet var separatorHeightConstraint: NSLayoutConstraint!
+    
+    let geocoder = Geocoder.sharedGeocoder
+    var places: [GeocodedPlacemark] = []
+    let formatter = StreetAddressFormatter()
+    var annotation : MGLPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +42,15 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "SampleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SampleCell", for: indexPath)
+        let place = places[indexPath.row]
+        cell.textLabel?.text = place.name
+        cell.detailTextLabel?.text = formatter.string(from: place.postalAddress!)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,11 +62,27 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
         
         if let drawer = self.parent as? PulleyViewController
         {
-            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
+            let content = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationDetailViewController") as! LocationDetailViewController
             
-            drawer.setDrawerPosition(position: .collapsed, animated: true)
+            let placemark = places[indexPath.row]
+            content.set(placemark: placemark)
+            drawer.setDrawerPosition(position: .partiallyRevealed, animated: true)
             
-            drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
+            drawer.setDrawerContentViewController(controller: content, animated: false)
+            
+            // Add an annotation to the map & center at the selected location
+            let primary = drawer.primaryContentViewController as? MapViewController
+            let mapView = primary?.mapView
+
+            if let point = annotation {
+                mapView?.removeAnnotation(point)
+            }
+            annotation = MGLPointAnnotation()
+            annotation?.coordinate = placemark.location.coordinate
+            annotation?.title = placemark.name
+            annotation?.subtitle = placemark.qualifiedName
+            mapView?.addAnnotation(annotation!)
+            mapView?.setCenter(placemark.location.coordinate, animated: true)
         }
     }
     
@@ -95,7 +122,20 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let options = ForwardGeocodeOptions(query:searchText)
+        let options = ForwardGeocodeOptions(query: searchText)
+        options.allowedISOCountryCodes = ["US", "CA"]
+        options.focalLocation = CLLocation(latitude: 37.29, longitude: -121.96)
+        options.allowedScopes = [.address, .pointOfInterest]
+        options.maximumResultCount = 20
         
+        let _ = geocoder.geocode(options) { (placemarks, attribution, error) in
+            if let results = placemarks {
+                self.places.removeAll()
+                self.places.append(contentsOf: results)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }

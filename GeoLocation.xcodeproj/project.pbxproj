@@ -17,6 +17,10 @@
 		6983BBEE1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */; };
 		6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */; };
 		6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69A8A77C1E25593D002472C4 /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */; };
+		69A8A77D1E25593D002472C4 /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69A8A77F1E256B1B002472C4 /* StreetAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A8A77E1E256B1B002472C4 /* StreetAddressFormatter.swift */; };
+		69A8A7811E256D73002472C4 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A8A7801E256D73002472C4 /* LocationDetailViewController.swift */; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
 		69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* MapViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
@@ -53,6 +57,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				69A8A77D1E25593D002472C4 /* MapboxGeocoder.framework in Embed Frameworks */,
 				6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
 				6983BBE51E24066800C9E0F6 /* Mapbox.framework in Embed Frameworks */,
 			);
@@ -71,6 +76,9 @@
 		6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
 		6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = Carthage/Build/iOS/IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
+		69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxGeocoder.framework; path = Carthage/Build/iOS/MapboxGeocoder.framework; sourceTree = "<group>"; };
+		69A8A77E1E256B1B002472C4 /* StreetAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetAddressFormatter.swift; sourceTree = "<group>"; };
+		69A8A7801E256D73002472C4 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3AE781E06F0D10030AFA1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A8A77C1E25593D002472C4 /* MapboxGeocoder.framework in Frameworks */,
 				6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */,
 				693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */,
 				69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */,
@@ -121,7 +130,10 @@
 		6983BBDF1E1F12E900C9E0F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */,
+				69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */,
 				6983BBE01E1F132F00C9E0F6 /* registration.plist */,
+				69F3AE821E06F0D10030AFA1 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -159,19 +171,18 @@
 		69F3AE751E06F0D10030AFA1 /* GeoLocation */ = {
 			isa = PBXGroup;
 			children = (
+				693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */,
 				6983BBEA1E2458F300C9E0F6 /* iOS 10 Pulley Map UI */,
 				6983BBDF1E1F12E900C9E0F6 /* Resources */,
 				69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */,
 				69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */,
-				69F3AE7D1E06F0D10030AFA1 /* Assets.xcassets */,
-				69F3AE7F1E06F0D10030AFA1 /* LaunchScreen.storyboard */,
-				69F3AE821E06F0D10030AFA1 /* Info.plist */,
-				693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */,
 				69F3AE781E06F0D10030AFA1 /* MapViewController.swift */,
 				6983BBEB1E245B2C00C9E0F6 /* LocationSearchViewController.swift */,
 				6983BBED1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift */,
 				69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */,
 				69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */,
+				69A8A77E1E256B1B002472C4 /* StreetAddressFormatter.swift */,
+				69A8A7801E256D73002472C4 /* LocationDetailViewController.swift */,
 			);
 			path = GeoLocation;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 			children = (
 				6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */,
 				6983BBE31E24066800C9E0F6 /* Mapbox.framework */,
+				69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */,
 				693BA3591E09BBD700C5522E /* CoreFoundation.framework */,
 				69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */,
 			);
@@ -351,8 +363,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6983BBE81E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift in Sources */,
+				69A8A77F1E256B1B002472C4 /* StreetAddressFormatter.swift in Sources */,
 				69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */,
 				6983BBEC1E245B2C00C9E0F6 /* LocationSearchViewController.swift in Sources */,
+				69A8A7811E256D73002472C4 /* LocationDetailViewController.swift in Sources */,
 				6983BBEE1E247BE100C9E0F6 /* PrimaryTransitionTargetViewController.swift in Sources */,
 				69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */,
 				69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */,
