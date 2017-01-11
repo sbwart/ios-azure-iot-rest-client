@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Mapbox
+import MapboxDirections
 import MapboxGeocoder
 
 class LocationDetailViewController : UITableViewController {
     
     var placemark : Placemark?
+    var mapViewController : MapViewController?
     let formatter = CNPostalAddressFormatter()
+    let directions = Directions.shared
     
     @IBOutlet var nameLabel : UILabel?
     @IBOutlet var distanceLabel : UILabel?
@@ -21,7 +25,7 @@ class LocationDetailViewController : UITableViewController {
     @IBOutlet var directionsButton : UIButton?
     
     @IBAction func navigateToLocation() {
-        print("Directions!")
+        mapViewController?.showDirectionsTo(placemark:self.placemark!)
     }
     
     override func viewDidLoad() {
@@ -33,6 +37,10 @@ class LocationDetailViewController : UITableViewController {
         directionsButton?.clipsToBounds = true
     }
     
+    func set(mapViewController: MapViewController) {
+        self.mapViewController = mapViewController
+    }
+
     func set(placemark: Placemark) {
         // force the controller to load the view hierarchy so outlets are populated
         let _ = self.view
@@ -40,5 +48,6 @@ class LocationDetailViewController : UITableViewController {
         self.nameLabel?.text = placemark.name
         self.addressLabel?.text = formatter.string(from: placemark.postalAddress!)
         self.phoneLabel?.text = placemark.phoneNumber
+        self.distanceLabel?.text = mapViewController?.distanceString(to:placemark.location!)
     }
 }

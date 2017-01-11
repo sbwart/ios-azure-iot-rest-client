@@ -170,7 +170,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="343.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tpe-wR-iZc">
-                                        <rect key="frame" x="0.0" y="112" width="375" height="212"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="240"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SampleCell" textLabel="iv2-Dz-k2g" detailTextLabel="mwT-OS-d3P" rowHeight="81" style="IBUITableViewCellStyleSubtitle" id="YCS-qS-F1R">
@@ -207,6 +207,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOb-lc-Bkn">
                                         <rect key="frame" x="0.0" y="8" width="375" height="68"/>
                                         <subviews>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ4-wV-jdd">
+                                                <rect key="frame" x="169" y="0.0" width="36" height="5"/>
+                                                <color key="backgroundColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="LPi-am-ITc"/>
+                                                    <constraint firstAttribute="height" constant="5" id="Nnl-Cz-maN"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHQ-jc-GzA">
                                                 <rect key="frame" x="0.0" y="67" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -214,8 +222,8 @@
                                                     <constraint firstAttribute="height" constant="1" id="jBv-gE-BSD" userLabel="Separator Height Constraint"/>
                                                 </constraints>
                                             </view>
-                                            <searchBar contentMode="redraw" placeholder="Search for a job or address" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrz-X0-2ws">
-                                                <rect key="frame" x="0.0" y="16" width="375" height="88"/>
+                                            <searchBar contentMode="redraw" placeholder="Search for a job or address" translatesAutoresizingMaskIntoConstraints="NO" id="Qrz-X0-2ws">
+                                                <rect key="frame" x="0.0" y="16" width="375" height="44"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <scopeButtonTitles>
                                                     <string>Jobs</string>
@@ -225,14 +233,6 @@
                                                     <outlet property="delegate" destination="ivz-5a-quT" id="iZM-z7-g2B"/>
                                                 </connections>
                                             </searchBar>
-                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ4-wV-jdd">
-                                                <rect key="frame" x="169" y="0.0" width="36" height="5"/>
-                                                <color key="backgroundColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="LPi-am-ITc"/>
-                                                    <constraint firstAttribute="height" constant="5" id="Nnl-Cz-maN"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -242,7 +242,7 @@
                                             <constraint firstItem="GQ4-wV-jdd" firstAttribute="centerX" secondItem="HOb-lc-Bkn" secondAttribute="centerX" id="S4A-r4-9Wu"/>
                                             <constraint firstAttribute="bottom" secondItem="FHQ-jc-GzA" secondAttribute="bottom" id="URa-v5-MpZ"/>
                                             <constraint firstItem="GQ4-wV-jdd" firstAttribute="top" secondItem="HOb-lc-Bkn" secondAttribute="top" id="n3E-q8-Fbu"/>
-                                            <constraint firstItem="Qrz-X0-2ws" firstAttribute="centerY" secondItem="HOb-lc-Bkn" secondAttribute="centerY" constant="26" id="tRz-C2-yYS"/>
+                                            <constraint firstItem="Qrz-X0-2ws" firstAttribute="centerY" secondItem="HOb-lc-Bkn" secondAttribute="centerY" constant="4" id="tRz-C2-yYS"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -251,7 +251,7 @@
                                     <constraint firstItem="HOb-lc-Bkn" firstAttribute="leading" secondItem="MTO-9s-LTN" secondAttribute="leading" id="DDo-cm-0Au"/>
                                     <constraint firstItem="HOb-lc-Bkn" firstAttribute="top" secondItem="MTO-9s-LTN" secondAttribute="top" constant="8" id="Hfj-w3-gsT"/>
                                     <constraint firstAttribute="trailing" secondItem="FHQ-jc-GzA" secondAttribute="trailing" id="jrB-HS-cTM"/>
-                                    <constraint firstItem="tpe-wR-iZc" firstAttribute="top" secondItem="HOb-lc-Bkn" secondAttribute="bottom" constant="36" id="jrK-En-5B7"/>
+                                    <constraint firstItem="tpe-wR-iZc" firstAttribute="top" secondItem="HOb-lc-Bkn" secondAttribute="bottom" constant="8" id="jrK-En-5B7"/>
                                     <constraint firstItem="tpe-wR-iZc" firstAttribute="leading" secondItem="MTO-9s-LTN" secondAttribute="leading" id="k9H-op-ULh"/>
                                     <constraint firstAttribute="trailing" secondItem="tpe-wR-iZc" secondAttribute="trailing" id="sr7-op-6il"/>
                                     <constraint firstAttribute="bottom" secondItem="tpe-wR-iZc" secondAttribute="bottom" constant="20" id="tS4-mz-7ei"/>
@@ -278,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dua-eu-rCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915.5" y="360"/>
+            <point key="canvasLocation" x="914.39999999999998" y="359.82008995502252"/>
         </scene>
         <!--Primary Transition Target View Controller-->
         <scene sceneID="oxp-jJ-2ol">

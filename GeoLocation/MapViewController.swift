@@ -8,6 +8,8 @@
 
 import UIKit
 import Mapbox
+import MapboxDirections
+import MapboxGeocoder
 import CoreLocation
 
 class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryContentControllerDelegate, CLLocationManagerDelegate {
@@ -20,9 +22,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryCont
     
     private let temperatureLabelBottomDistance: CGFloat = 8.0
     
-// need to maintain a reference to the location manager for authorization requests
+    // maintain a reference to the location manager for authorization requests
     let manager = CLLocationManager()
     let gateway = IotGateway()
+    let directions = Directions.shared
+    
+    var annotation: MGLPointAnnotation?
+    var lastLocation : CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +80,74 @@ class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryCont
         if !didInitialZoom {
             mapView?.setCenter(coord, zoomLevel: 14.0, animated: true)
             didInitialZoom = true
+        }
+        lastLocation = location
+    }
+    
+    func animateTo(placemark: Placemark) {
+        if let point = annotation {
+            mapView?.removeAnnotation(point)
+        }
+        annotation = MGLPointAnnotation()
+        annotation?.coordinate = placemark.location!.coordinate
+        annotation?.title = placemark.name
+        annotation?.subtitle = placemark.qualifiedName
+        mapView?.addAnnotation(annotation!)
+        mapView?.setCenter(placemark.location!.coordinate, animated: true)
+    }
+    
+    func distanceString(to: CLLocation) -> String {
+        let distanceFormatter = LengthFormatter()
+        let distance = lastLocation?.distance(from: to)
+        return distanceFormatter.string(fromMeters: distance!)
+    }
+    
+    func showDirectionsTo(placemark: Placemark) {
+        if let from = lastLocation {
+            let waypoints = [
+                Waypoint(coordinate: from.coordinate),
+                Waypoint(coordinate: placemark.location!.coordinate)
+            ]
+            let options = RouteOptions(waypoints: waypoints, profileIdentifier: MBDirectionsProfileIdentifierAutomobile)
+            options.includesSteps = true
+            
+            let _ = directions.calculate(options) { (waypoints, routes, error) in
+                guard error == nil else {
+                    print("Error calculating directions \(error)")
+                    return
+                }
+                
+                if let route = routes?.first, let leg = route.legs.first {
+                    
+                    // TODO populate the UI
+                    print("Route via \(leg):")
+                    
+                    let distanceFormatter = LengthFormatter()
+                    let formattedDistance = distanceFormatter.string(fromMeters:route.distance)
+                    
+                    let travelTimeFormatter = DateComponentsFormatter()
+                    travelTimeFormatter.unitsStyle = .short
+                    let formattedTravelTime = travelTimeFormatter.string(from: route.expectedTravelTime)
+                    
+                    print("Distance: \(formattedDistance); ETA: \(formattedTravelTime!)")
+                    
+                    for step in leg.steps {
+                        print("\(step.instructions)")
+                        let formattedDistance = distanceFormatter.string(fromMeters: step.distance)
+                        print("- \(formattedDistance) - ")
+                    }
+                    
+                    // Draw the route on the map
+                    if route.coordinateCount > 0 {
+                        // Convert the route's coordinates into a polyline
+                        var coords = route.coordinates!
+                        let line = MGLPolyline(coordinates: &coords, count: route.coordinateCount)
+                        
+                        self.mapView?.addAnnotation(line)
+                        self.mapView?.setVisibleCoordinates(&coords, count: route.coordinateCount, edgePadding: UIEdgeInsets.zero, animated:true)
+                    }
+                }
+            }
         }
     }
     

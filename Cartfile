@@ -1,2 +1,3 @@
 github "iosdevzone/IDZSwiftCommonCrypto"
 github "Mapbox/MapboxGeocoder.swift" "swift3"
+github "Mapbox/MapboxDirections.swift" "swift3"

@@ -21,6 +21,10 @@
 		69A8A77D1E25593D002472C4 /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A8A77F1E256B1B002472C4 /* StreetAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A8A77E1E256B1B002472C4 /* StreetAddressFormatter.swift */; };
 		69A8A7811E256D73002472C4 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A8A7801E256D73002472C4 /* LocationDetailViewController.swift */; };
+		69A8A7831E25A335002472C4 /* Polyline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A7821E25A335002472C4 /* Polyline.framework */; };
+		69A8A7841E25A335002472C4 /* Polyline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A7821E25A335002472C4 /* Polyline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69A8A7861E25A33F002472C4 /* MapboxDirections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A7851E25A33F002472C4 /* MapboxDirections.framework */; };
+		69A8A7871E25A33F002472C4 /* MapboxDirections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A8A7851E25A33F002472C4 /* MapboxDirections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69F3AE771E06F0D10030AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */; };
 		69F3AE791E06F0D10030AFA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE781E06F0D10030AFA1 /* MapViewController.swift */; };
 		69F3AE7C1E06F0D10030AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F3AE7A1E06F0D10030AFA1 /* Main.storyboard */; };
@@ -58,7 +62,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				69A8A77D1E25593D002472C4 /* MapboxGeocoder.framework in Embed Frameworks */,
+				69A8A7871E25A33F002472C4 /* MapboxDirections.framework in Embed Frameworks */,
 				6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
+				69A8A7841E25A335002472C4 /* Polyline.framework in Embed Frameworks */,
 				6983BBE51E24066800C9E0F6 /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +85,8 @@
 		69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxGeocoder.framework; path = Carthage/Build/iOS/MapboxGeocoder.framework; sourceTree = "<group>"; };
 		69A8A77E1E256B1B002472C4 /* StreetAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetAddressFormatter.swift; sourceTree = "<group>"; };
 		69A8A7801E256D73002472C4 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		69A8A7821E25A335002472C4 /* Polyline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Polyline.framework; path = Carthage/Build/iOS/Polyline.framework; sourceTree = "<group>"; };
+		69A8A7851E25A33F002472C4 /* MapboxDirections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxDirections.framework; path = Carthage/Build/iOS/MapboxDirections.framework; sourceTree = "<group>"; };
 		69F3AE731E06F0D10030AFA1 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3AE761E06F0D10030AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3AE781E06F0D10030AFA1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A8A7831E25A335002472C4 /* Polyline.framework in Frameworks */,
 				69A8A77C1E25593D002472C4 /* MapboxGeocoder.framework in Frameworks */,
+				69A8A7861E25A33F002472C4 /* MapboxDirections.framework in Frameworks */,
 				6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */,
 				693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */,
 				69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */,
@@ -150,6 +160,8 @@
 		69F3AE6A1E06F0D10030AFA1 = {
 			isa = PBXGroup;
 			children = (
+				69A8A7851E25A33F002472C4 /* MapboxDirections.framework */,
+				69A8A7821E25A335002472C4 /* Polyline.framework */,
 				69F3AE751E06F0D10030AFA1 /* GeoLocation */,
 				69F3AE8A1E06F0D10030AFA1 /* GeoLocationTests */,
 				69F3AE951E06F0D10030AFA1 /* GeoLocationUITests */,

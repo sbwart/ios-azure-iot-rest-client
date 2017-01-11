@@ -21,7 +21,6 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
     let geocoder = Geocoder.sharedGeocoder
     var places: [GeocodedPlacemark] = []
     let formatter = StreetAddressFormatter()
-    var annotation : MGLPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +63,10 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
         {
             let content = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationDetailViewController") as! LocationDetailViewController
             
+            // navigate to parent to find mapview
+            let primary = drawer.primaryContentViewController as? MapViewController
+            content.set(mapViewController: primary!)
+
             let placemark = places[indexPath.row]
             content.set(placemark: placemark)
             drawer.setDrawerPosition(position: .partiallyRevealed, animated: true)
@@ -71,18 +74,7 @@ class LocationSearchViewController : UIViewController, UITableViewDelegate, UITa
             drawer.setDrawerContentViewController(controller: content, animated: false)
             
             // Add an annotation to the map & center at the selected location
-            let primary = drawer.primaryContentViewController as? MapViewController
-            let mapView = primary?.mapView
-
-            if let point = annotation {
-                mapView?.removeAnnotation(point)
-            }
-            annotation = MGLPointAnnotation()
-            annotation?.coordinate = placemark.location.coordinate
-            annotation?.title = placemark.name
-            annotation?.subtitle = placemark.qualifiedName
-            mapView?.addAnnotation(annotation!)
-            mapView?.setCenter(placemark.location.coordinate, animated: true)
+            primary?.animateTo(placemark: placemark)
         }
     }
     
