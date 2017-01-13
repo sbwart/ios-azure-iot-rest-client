@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var client = MSClient?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -20,6 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // registration will be done asynchronously
         if !profile.isRegistered() {
             try! profile.register()
+        }
+        
+        self.client = MSClient(
+            applicationURLString:"https://oscp-intermodal.azurewebsites.net"
+        )
+        
+        let delegate = Application.shared.delegate as AppDelegate
+        let client = delegate.client!
+        let item = ["text":"Awesome item"]
+        let itemTable = client.tableWithName("TodoItem")
+        itemTable.insert(item) {
+            (insertedItem, error) in
+            if error {
+                println("Error" + error.description);
+            } else {
+                println("Item inserted, id: " + insertedItem["id"])
+            }
         }
         
         return true

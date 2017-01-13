@@ -33,6 +33,9 @@
 		69F3AE8C1E06F0D10030AFA1 /* GeoLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE8B1E06F0D10030AFA1 /* GeoLocationTests.swift */; };
 		69F3AE971E06F0D10030AFA1 /* GeoLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3AE961E06F0D10030AFA1 /* GeoLocationUITests.swift */; };
 		69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */; };
+		69FCAD511E2996550046D0C3 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FCAD501E2996550046D0C3 /* MicrosoftAzureMobile.framework */; };
+		69FCAD521E29965F0046D0C3 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FCAD501E2996550046D0C3 /* MicrosoftAzureMobile.framework */; };
+		69FCAD531E29965F0046D0C3 /* MicrosoftAzureMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69FCAD501E2996550046D0C3 /* MicrosoftAzureMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */; };
 		69FF679C1E0EE24500AAD9A4 /* DeviceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				69A8A77D1E25593D002472C4 /* MapboxGeocoder.framework in Embed Frameworks */,
+				69FCAD531E29965F0046D0C3 /* MicrosoftAzureMobile.framework in Embed Frameworks */,
 				69A8A7871E25A33F002472C4 /* MapboxDirections.framework in Embed Frameworks */,
 				6983BBF21E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
 				69A8A7841E25A335002472C4 /* Polyline.framework in Embed Frameworks */,
@@ -101,6 +105,7 @@
 		69F3AE961E06F0D10030AFA1 /* GeoLocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationUITests.swift; sourceTree = "<group>"; };
 		69F3AE981E06F0D10030AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		69FCAD501E2996550046D0C3 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MicrosoftAzureMobile.framework; path = ../../Downloads/MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IoTGateway.swift; sourceTree = "<group>"; };
 		69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +116,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A8A7831E25A335002472C4 /* Polyline.framework in Frameworks */,
+				69FCAD521E29965F0046D0C3 /* MicrosoftAzureMobile.framework in Frameworks */,
+				69FCAD511E2996550046D0C3 /* MicrosoftAzureMobile.framework in Frameworks */,
 				69A8A77C1E25593D002472C4 /* MapboxGeocoder.framework in Frameworks */,
 				69A8A7861E25A33F002472C4 /* MapboxDirections.framework in Frameworks */,
 				6983BBF11E25521C00C9E0F6 /* IDZSwiftCommonCrypto.framework in Frameworks */,
@@ -160,8 +167,6 @@
 		69F3AE6A1E06F0D10030AFA1 = {
 			isa = PBXGroup;
 			children = (
-				69A8A7851E25A33F002472C4 /* MapboxDirections.framework */,
-				69A8A7821E25A335002472C4 /* Polyline.framework */,
 				69F3AE751E06F0D10030AFA1 /* GeoLocation */,
 				69F3AE8A1E06F0D10030AFA1 /* GeoLocationTests */,
 				69F3AE951E06F0D10030AFA1 /* GeoLocationUITests */,
@@ -220,9 +225,12 @@
 		69F3AEA41E06F0E70030AFA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69FCAD501E2996550046D0C3 /* MicrosoftAzureMobile.framework */,
 				6983BBEF1E2551EE00C9E0F6 /* IDZSwiftCommonCrypto.framework */,
 				6983BBE31E24066800C9E0F6 /* Mapbox.framework */,
+				69A8A7821E25A335002472C4 /* Polyline.framework */,
 				69A8A77B1E25593D002472C4 /* MapboxGeocoder.framework */,
+				69A8A7851E25A33F002472C4 /* MapboxDirections.framework */,
 				693BA3591E09BBD700C5522E /* CoreFoundation.framework */,
 				69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */,
 			);
@@ -538,7 +546,6 @@
 				DEVELOPMENT_TEAM = MSJ6KMGCMB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
@@ -557,7 +564,6 @@
 				DEVELOPMENT_TEAM = MSJ6KMGCMB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CommonCrypto/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);

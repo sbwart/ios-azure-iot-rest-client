@@ -9,6 +9,7 @@
 #ifndef GeoLocation_Bridging_Header_h
 #define GeoLocation_Bridging_Header_h
 
+#import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
 #import <CommonCrypto/CommonCrypto.h>
 #import <IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.h>
 
