@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MicrosoftAzureMobile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var client = MSClient?
+    var client: MSClient?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -27,16 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             applicationURLString:"https://oscp-intermodal.azurewebsites.net"
         )
         
-        let delegate = Application.shared.delegate as AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         let client = delegate.client!
         let item = ["text":"Awesome item"]
-        let itemTable = client.tableWithName("TodoItem")
+        let itemTable = client.table(withName: "TodoItem")
         itemTable.insert(item) {
             (insertedItem, error) in
-            if error {
-                println("Error" + error.description);
+            if (error != nil) {
+                print("Error" + error.debugDescription);
             } else {
-                println("Item inserted, id: " + insertedItem["id"])
+                print("Item inserted, id: \(insertedItem!["id"])")
             }
         }
         
