@@ -19,26 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let profile = DeviceProfile.defaultProfile()
         
-        // registration will be done asynchronously
-        if !profile.isRegistered() {
-            try! profile.register()
-        }
-        
         self.client = MSClient(
             applicationURLString:"https://oscp-intermodal.azurewebsites.net"
         )
         
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let client = delegate.client!
-        let item = ["text":"Awesome item"]
-        let itemTable = client.table(withName: "TodoItem")
-        itemTable.insert(item) {
-            (insertedItem, error) in
-            if (error != nil) {
-                print("Error" + error.debugDescription);
-            } else {
-                print("Item inserted, id: \(insertedItem!["id"])")
-            }
+        // registration will be done asynchronously
+        if !profile.isRegistered() {
+            try! profile.register()
         }
         
         return true

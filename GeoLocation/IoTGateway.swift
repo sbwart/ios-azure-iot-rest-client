@@ -55,7 +55,7 @@ class IotGateway {
         return nil
     }
     
-    func publishLocation(_ location: CLLocation) {
+    func publishLocation(_ userId: String?, _ location: CLLocation) {
         let profile = DeviceProfile.defaultProfile()
 
         // updates will not be able to start until device is registered
@@ -66,7 +66,7 @@ class IotGateway {
 
         let deviceid = profile.getDeviceId()
         let devicekey = profile.getDeviceKey()
-        
+
         // endpoint for Azure device to cloud messaging
         let endpoint = "\(hostname).azure-devices.net/devices/\(deviceid)"
 
@@ -74,7 +74,7 @@ class IotGateway {
             
             let coord = location.coordinate
             let timestamp = location.timestamp.timeIntervalSince1970
-            let item = "{\"timestamp\":\(timestamp), \"device\":\"\(deviceid)\", \"latitude\":\(coord.latitude), \"longitude\":\(coord.longitude)}"
+            let item = "{\"timestamp\":\(timestamp), \"device\":\"\(deviceid)\", \"latitude\":\(coord.latitude), \"longitude\":\(coord.longitude), \"userId\":\"\(userId!)\"}"
             
             if let body = item.data(using: .utf8) {
                 // HTTP POST request

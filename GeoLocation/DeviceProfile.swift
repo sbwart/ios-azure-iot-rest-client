@@ -6,7 +6,7 @@
 //  Copyright © 2016 Steve Wart. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum DeviceProfileError : Error {
     case deviceAlreadyRegistered
@@ -98,7 +98,7 @@ class DeviceProfile {
                     
                     self.readDeviceKeys(data)
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async {                        
                         print("Device ID: \(self.deviceId)")
                         print("Device Primary Key: \(self.primaryKey)")
                         print("Device Secondary Key: \(self.secondaryKey)")

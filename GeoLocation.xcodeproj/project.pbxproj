@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29563C17DC43C18C3102A47C /* Pods_GeoLocationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6215AAAE5652D03BCF8D5C7 /* Pods_GeoLocationUITests.framework */; };
+		409B993C5DB377F152197B90 /* Pods_GeoLocationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6745EF6F9FACB05F58E9B850 /* Pods_GeoLocationTests.framework */; };
 		693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BA3591E09BBD700C5522E /* CoreFoundation.framework */; };
 		6983BBE11E1F132F00C9E0F6 /* registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6983BBE01E1F132F00C9E0F6 /* registration.plist */; };
 		6983BBE81E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983BBE61E244E8500C9E0F6 /* PulleyPassthroughScrollView.swift */; };
@@ -25,6 +27,7 @@
 		69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */; };
 		69FF679A1E0D84FF00AAD9A4 /* IoTGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF67991E0D84FF00AAD9A4 /* IoTGateway.swift */; };
 		69FF679C1E0EE24500AAD9A4 /* DeviceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF679B1E0EE24500AAD9A4 /* DeviceProfile.swift */; };
+		B3EB8BB343F436C46F429798 /* Pods_GeoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178ECB1C360A1C85C0C1C0AE /* Pods_GeoLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178ECB1C360A1C85C0C1C0AE /* Pods_GeoLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6745EF6F9FACB05F58E9B850 /* Pods_GeoLocationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoLocationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		693BA3551E09AEC700C5522E /* GeoLocation-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoLocation-Bridging-Header.h"; sourceTree = "<group>"; };
 		693BA3591E09BBD700C5522E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6983BBE01E1F132F00C9E0F6 /* registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = registration.plist; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 		9886AA4246162298F5F3201E /* Pods-GeoLocationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoLocationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoLocationTests/Pods-GeoLocationTests.release.xcconfig"; sourceTree = "<group>"; };
 		A086BB959DD3A8E2EEBA631F /* Pods-GeoLocationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoLocationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoLocationUITests/Pods-GeoLocationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A97CF7811F5C39C62D0CA1EC /* Pods-GeoLocationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoLocationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoLocationUITests/Pods-GeoLocationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C6215AAAE5652D03BCF8D5C7 /* Pods_GeoLocationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoLocationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF82757EB082C2468D7AAAEB /* Pods-GeoLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoLocation/Pods-GeoLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		DE363D516061CBD9FB89E92D /* Pods-GeoLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoLocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoLocation/Pods-GeoLocation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,7 @@
 			files = (
 				693BA35A1E09BBD700C5522E /* CoreFoundation.framework in Frameworks */,
 				69F3AEA81E06FAB10030AFA1 /* CoreLocation.framework in Frameworks */,
+				B3EB8BB343F436C46F429798 /* Pods_GeoLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409B993C5DB377F152197B90 /* Pods_GeoLocationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29563C17DC43C18C3102A47C /* Pods_GeoLocationUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,9 @@
 			children = (
 				693BA3591E09BBD700C5522E /* CoreFoundation.framework */,
 				69F3AEA71E06FAB10030AFA1 /* CoreLocation.framework */,
+				178ECB1C360A1C85C0C1C0AE /* Pods_GeoLocation.framework */,
+				6745EF6F9FACB05F58E9B850 /* Pods_GeoLocationTests.framework */,
+				C6215AAAE5652D03BCF8D5C7 /* Pods_GeoLocationUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

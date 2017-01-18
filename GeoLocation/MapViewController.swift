@@ -28,7 +28,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryCont
     let directions = Directions.shared
     
     var annotation: MGLPointAnnotation?
-    var lastLocation : CLLocation?
+    var lastLocation: CLLocation?
+    var userId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,23 @@ class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryCont
         
         controlsContainer.layer.cornerRadius = 10.0
         temperatureLabel.layer.cornerRadius = 7.0
-
+        
+        // Ensure user is logged in before collecting any data
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let client = delegate.client!
+        
+        if client.currentUser == nil {
+            client.login(withProvider: "windowsazureactivedirectory", controller:self, animated:true) { user, error in
+                print("User ID: \(user?.userId)")
+                self.userId = user?.userId
+                DispatchQueue.main.async {
+                    self.startLocationServices()
+                }
+            }
+        }
+    }
+    
+    private func startLocationServices() {
         // Location Services
         if CLLocationManager.locationServicesEnabled() {
             manager.delegate = self
@@ -72,7 +89,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, PulleyPrimaryCont
         let dt = NSDate().timeIntervalSince1970 - lastUpdateTime
         if dt >= desiredInterval {
             print("Send to server lat: \(coord.latitude), lon: \(coord.longitude), speed: \(speed)", terminator:"\n")
-            gateway.publishLocation(location)
+            gateway.publishLocation(userId, location)
             lastUpdateTime = NSDate().timeIntervalSince1970
         }
         // zoom map view to user location (just once, at startup)
