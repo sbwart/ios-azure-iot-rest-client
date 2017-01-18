@@ -37,22 +37,11 @@ function logError(err) {
   log.error(err);
 }
 
-// configure db interface
-var connection = new Connection(config.database);  
-connection.on('connect', function(err) {  
-  // if connect fails, the module will exit 
-  if (err) {
-    logError(err);
-  }
-  // If no error, then good to proceed.
-  else {
-    log.info("Connected to database");
-    startEventListener();
-  }
-});  
+var Request = require('tedious').Request
+var TYPES = require('tedious').TYPES;
 
-var Request = require('tedious').Request  
-var TYPES = require('tedious').TYPES;  
+// start listening for messages
+startEventListener();
 
 // TODO message may be an object or an array of objects (userId to be added)
 /*
@@ -62,28 +51,32 @@ var TYPES = require('tedious').TYPES;
 function saveMessage(message) {
   logMessage(message);
 
-  var request = new Request("INSERT INTO Message (timestamp, deviceId, latitude, longitude, userId) VALUES (@timestamp, @deviceId, @latitude, @longitude, @userId);", function(err) {  
+  var connection = new Connection(config.database);
+  connection.on('connect', function(err) {
     if (err) {
-      log.error(err)
-    }  
+      logError(err);
+    }
+    else {
+      var request = new Request("INSERT INTO Message (timestamp, deviceId, latitude, longitude, userId) VALUES (@timestamp, @deviceId, @latitude, @longitude, @userId);", function(err) {
+        if (err) {
+          log.error(err)
+        }
+      });
+      request.addParameter('timestamp', TYPES.NVarChar, message.body.timestamp);
+      request.addParameter('deviceId', TYPES.NVarChar , message.body.device);
+      request.addParameter('latitude', TYPES.Float, message.body.latitude);
+      request.addParameter('longitude', TYPES.Float, message.body.longitude);
+      request.addParameter('userId', TYPES.NVarChar , message.body.userId);
+      request.on('done', function (rowCount, more, rows) {
+        if (!more) {
+          // we may receive multiple 'done' events if there is more than one statement to process
+          connection.close();
+        }
+      });
+      connection.execSql(request);
+    }
   });
-
-  log.info("Saving message: " + JSON.stringify(message.body));
-
-  request.addParameter('timestamp', TYPES.NVarChar, message.body.timestamp);
-  request.addParameter('deviceId', TYPES.NVarChar , message.body.device);
-  request.addParameter('latitude', TYPES.Float, message.body.latitude);
-  request.addParameter('longitude', TYPES.Float, message.body.longitude);
-  request.addParameter('userId', TYPES.NVarChar , message.body.userId);
-  request.on('row', function(columns) {  
-      columns.forEach(function(column) {  
-        if (column.value !== null) {  
-          log.info("id of inserted item is " + column.value);  
-        }  
-      });  
-  });       
-  connection.execSql(request);  
-}  
+}
 
 function startEventListener() {
   log.info(" === Message Listener Service starting at " + new Date() + " ===");
